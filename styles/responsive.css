@@ -1,0 +1,17 @@
+@media (max-width: 1000px) {
+	#modal .container {
+		width: 80%;
+	}
+}
+
+@media (max-width: 600px) {
+	#modal .container .form .box-input {
+		flex-direction: column;
+	}
+
+	#modal .container .form .box-input input {
+	width: 100%;
+	margin-bottom: 5px;
+	
+	}
+}
