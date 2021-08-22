@@ -1,0 +1,74 @@
+/* === DEFINIÇÕES PADRÕES === */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12pt;
+}
+
+:root {
+	--colorOne: rgb(23,26,29);
+	--colorTwo: rgb(255,175,54);
+	--white: rgb(255,255,255);
+	--black: rgb(0,0,0);
+	--borderOne: 1px solid rgba(255,255,255, 0.3);
+	--colorOk: rgb(0,202,146);
+	--colorError: rgb(255,98,88);
+	--font-osc: 'Open Sans Condensed';
+	--font-roboto: 'Roboto Condensed', sans-serif;;
+}
+
+/* === CONFIG. TAG */
+
+button {border: 0;}
+a {text-decoration: none;}
+li {list-style: none;}
+
+body {background-color: var(--colorOne); line-height: 25pt;}
+
+/* === CONFIG. CONTAINER === */
+
+.container {
+	max-width: 1100px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+/* === CONFIG. CLASSES === */
+
+.c-ok {background-color: var(--colorOk);}
+.c-error {background-color: var(--colorError);}
+
+.df {display: flex;}
+
+.df.c {justify-content: center; align-items: center;}
+
+.df.aic-jcsb {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.df.jcc {justify-content: center;}
+.df.aic {align-items: center;}
+
+.df.sb {justify-content: space-between;}
+
+.df.w {flex-wrap: wrap;}
+
+.btn {
+	background: transparent;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    border: 1px solid currentColor;
+    cursor: pointer;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.hidden {display: none;}

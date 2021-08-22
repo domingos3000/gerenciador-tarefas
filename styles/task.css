@@ -1,80 +1,7 @@
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font: 18px 'Segoe UI'
-}
+/* === MAIN === */
 
-:root {
-	--colorOne: rgb(23,26,29);
-	--colorTwo: rgb(255,175,54);
-	--white: rgb(255,255,255);
-	--black: rgb(0,0,0);
-	--borderOne: 1px solid rgba(255,255,255, 0.3);
-	--colorOk: rgb(0,202,146);
-	--colorError: rgb(255,98,88);
-}
-
-button {border: 0;}
-
-body {background-color: var(--colorOne)}
-
-.c-ok {background-color: var(--colorOk);}
-.c-error {background-color: var(--colorError);}
-
-.df {display: flex;}
-
-.df.c {justify-content: center; align-items: center;}
-
-.df.sb {justify-content: space-between;}
-
-.df.w {flex-wrap: wrap;}
-
-.container {
-	max-width: 1100px;
-	width: 80%;
-	margin: 0 auto;
-}
-
-a {text-decoration: none;}
-li {list-style: none;}
-
-
-#header {
-	border-bottom: 1px solid rgba(255,255,255, 0.3);
-}
-
-#header .container {
-	height: 60px;
-	align-items: center;
-	justify-content: space-between;
-}
-
-#header .container .logo {
-	color: var(--white);
-}
-
-#header .container .menu button {
-	padding: 5px 10px;
-	background-color: rgba(255,255,255, 0.1);
-	border: 1px solid rgb(255,255,255);
-
-	color: var(--white);
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-#header .container .menu button:hover {
-	background-color: transparent;
-}
-
-#main .list-task .container {
-	/*height: calc(100vh - 70px);*/
+/*#main .list-task .container {
 	border-left: var(--borderOne);
-}
-
-#main .list-task .container ul {
-	/*padding-top: 50px;*/
 }
 
 #main .list-task .container ul .item-list {
@@ -85,10 +12,6 @@ li {list-style: none;}
 #main .list-task .container ul .item-list:nth-child(1) {
 	margin-top: 50px;
 }
-
-
-
-
 
 #main .list-task .container ul .item-list .header-task {
 	display: flex;
@@ -165,7 +88,7 @@ li {list-style: none;}
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 5px;
-	color: white;
+	color: var(--white);
 	cursor: pointer;
 	opacity: 0;
 }
@@ -197,7 +120,7 @@ li {list-style: none;}
 #modal .container {
 	max-width: 40em;
 	width: 50%;
-	background-color: white;
+	background-color: var(--white);
 	padding: 10px;
 	position: relative;
 	top: -50px;
@@ -225,7 +148,7 @@ li {list-style: none;}
 #modal .container .form .form-btn button {
 	width: 150px;
 	padding: 5px;
-	color: white;
+	color: var(--white);
 	margin: 0 8px;
 	cursor: pointer;
 }
@@ -247,11 +170,4 @@ li {list-style: none;}
 	max-height: 200px;
 	height: 150px;
 	padding: 10px;
-}
-
-/*#modal .container form input {
-	width: 250px;
-	padding: 5px 10px;
-	display: block;
-	margin-bottom: 10px;
 }*/

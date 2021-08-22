@@ -1,0 +1,64 @@
+/* === IMPORTANDO ESTILOS === */
+
+@import 'boot.css';
+@import 'header-and-footer.css';
+
+/* === BANNER === */
+
+#main-home .banner {
+	background: 
+		linear-gradient(rgb(23,26,29),rgba(23,26,29,0.9)),
+		url("../assets/pc.jpg") 
+		no-repeat;
+
+	background-size: cover;
+	position: relative;
+}
+
+#main-home .banner .container .svg-banner {
+	position: absolute;
+	right: 0;
+	z-index: 1;
+	opacity: .8;
+	width: 50%;
+	transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+}
+
+#main-home .banner .container {
+	height: calc(100vh - 61px);
+}
+
+#main-home .banner .container .banner-txt {
+	max-width: 600px;
+	z-index: 10;
+}
+
+#main-home .banner .container .banner-txt h1 {
+	color: white;
+	font-size: 30pt;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+#main-home .banner .container .banner-txt p {
+	color: #fff;
+	opacity: 0.9;
+	max-width: 500px
+}
+
+#main-home .banner .container .banner-txt .btn {
+	background-color: var(--colorError);
+	border-color: transparent;
+	margin-top: 30px;
+	padding: 3px 15px;
+}
+
+#main-home .banner .container .banner-txt .btn:hover {
+	box-shadow: 0 0 6px 1px rgb(255,98,88,0.7);
+}
+
+
