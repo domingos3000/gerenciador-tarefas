@@ -62,3 +62,57 @@
 }
 
 
+/* === MAIN | HEADER === */
+
+#main-home .about {
+	/*border-bottom: var(--borderOne);*/
+	padding-bottom: 40px;
+	padding-top: 20px;
+	/*height: 30vh;*/
+}
+
+#main-home .about .container .about-header p {
+	color: var(--colorTwo);
+}
+
+#main-home .about .container .about-header {
+	border-bottom: 1px dotted rgba(255, 175, 54, 0.7);
+}
+
+#main-home .about .container .about-txt {
+	max-width: 600px;
+	color: var(--white);
+	opacity: 0.8;
+	margin-top: 10px;
+	border-left: 8px solid rgba(255, 175, 54, 0.7);
+	padding-left: 10px;
+}
+
+#main-home .vantage .container {
+	padding-bottom: 20px;
+}
+
+#main-home .vantage .container .vantage-header {
+	border-bottom: 1px dotted rgba(0,202,146,0.7);
+}
+
+#main-home .vantage .container .vantage-header h1,
+#main-home .vantage .container .vantage-header p
+ {
+	color: var(--colorOk);
+}
+
+#main-home .vantage .container .vantage-txt ul li {
+	color: white;
+	opacity: 0.8;
+}
+
+#main-home .vantage .container .vantage-txt ul li::before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: var(--colorOk);
+	margin-right: 10px;
+}
