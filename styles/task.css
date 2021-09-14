@@ -1,173 +1,127 @@
-/* === MAIN === */
+#main-task #btn-add-task {
+	width: 40px;
+	height: 40px;
+	background-color: var(--colorOk);
+	border-radius: 50%;
+	position: fixed;
+	bottom: 30px;
+	right: 10%;
+	cursor: pointer;
+}
 
-/*#main .list-task .container {
+#main-task #btn-add-task .container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*line-height: auto;*/
+}
+
+#task-container {
+	border-left: var(--borderOne);
+	width: 100%;
+}
+
+#task-container .task-list {
+	padding: 10px 0;
+}
+
+#task-container .task-list .task-item .number-name .task-number {
+	background-color: var(--colorOne);
+	color: white;
+	width: 30px;
+	height: 30px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	position: relative;
+	right: 16px;
+	border: var(--borderOne);
+	box-shadow: 0px 0px 0px 3px  var(--colorOne);
+}
+
+#task-container .task-list .task-item .number-name .task-name {
+	text-transform: uppercase;
+	color: white;
+}
+
+
+#task-container .task-list .task-item .task-info {
+	margin-left: 34px;
+	line-height: 22px;
+	padding-left: 5px;
+	border-left: 4px solid rgba(255, 255, 255, 1.0);
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#task-aside-add {
+	width: 500px;
+	/*background-color: red;*/
+	height: 100vh;
 	border-left: var(--borderOne);
 }
 
-#main .list-task .container ul .item-list {
-	margin-bottom: 43px;
+#task-aside-add .box-input {
+	width: 250px;
+	height: 40px;
 	position: relative;
+	margin-top: 30px;
+	margin-left: 30px;
 }
 
-#main .list-task .container ul .item-list:nth-child(1) {
-	margin-top: 50px;
-}
-
-#main .list-task .container ul .item-list .header-task {
-	display: flex;
-	align-items: center;
-	text-transform: uppercase;
-	color: var(--white);
-}
-
-#main .list-task .container ul .item-list .header-task .number-task {
-	background-color: var(--colorOne);
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 25px;
-	border: var(--borderOne);
-	position: relative;
-	right: 25px;
-	overflow: hidden;
-}
-
-#main .list-task .item-list .header-task .number-task::after {
-	content: '';
+#task-aside-add .box-input label {
+	color: rgba(255,255,255, 0.3);
 	position: absolute;
-	background: var(--colorOne) url('../assets/options-2.svg') no-repeat center;
-	background-size: 70%;
-	right: -50px;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 10px;
+	transition: 0.3s all;
+	z-index: -1;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+#task-aside-add .box-input .input{
+	background-color: transparent;
+	border: var(--borderOne);
+	border-radius: 4px;
 	width: 100%;
 	height: 100%;
-	justify-content: center;
-	transition: 0.5s right;
-
+	padding: 0 10px;
+	outline: none;
+	color: rgba(255,255,255, 0.5);
 }
 
-#main .list-task .container ul .item-list:hover > .header-task .number-task::after {
-	right: 0;
-	cursor: pointer;
-}
-
-#main .list-task .container ul .item-list .date-task {
-	color: rgba(255,255,255,0.5);
-	margin-left: 50px;
-	text-transform: initial;
-	border-left: 5px solid rgba(255, 255, 255, 0.2);
-	padding-left: 5px;
-}
-
-#main .list-task .container ul .item-list .description-task {
-	margin-left: 50px;
-	margin-top: 10px;
-	max-width: 370px;
-	border-top: var(--borderOne);
-	padding-top: 20px;
-	color: var(--white);
-}
-
-#main .list-task .container ul .item-list .options {
+#task-aside-add .box-input .input:focus ~ label, 
+#task-aside-add .box-input .input:valid ~ label
+{
+	color: rgba(255,255,255, 0.3);
 	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	left: -18px;
-	top: 60px;
+	top: -5px;
+	transform: translateY(0);
+	left: 8px;
+	background-color: var(--colorOne);
+	padding: 0 4px;
+	font-size: 12px;
+	
+	z-index: 1;
 }
 
-#main .list-task .container ul .item-list .options .icon-option {
-	width: 35px;
-	height: 35px;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 5px;
-	color: var(--white);
-	cursor: pointer;
-	opacity: 0;
+#task-aside-add select {
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.3);
+	border: var(--borderOne);
 }
 
-#main .list-task .container ul .item-list:hover > .options .icon-option {
-	opacity: 1;
+#task-aside-add select option {
+	background-color: black;
 }
 
-#main .list-task .container ul .item-list:hover > .options .icon-option i {
-	pointer-events: none;
+#task-aside-add .box-select span {
+	color: rgba(255, 255, 255, 0.3);
 }
 
-
-#modal {
-	background-color: rgba(0, 0, 0, 0.7);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
+#task-aside-add .box-select {
+	display: block;
+	margin-top: 40px;
+	margin-left: 30px;
 }
-
-#modal.open {visibility: visible;}
-
-#modal .container {
-	max-width: 40em;
-	width: 50%;
-	background-color: var(--white);
-	padding: 10px;
-	position: relative;
-	top: -50px;
-}
-
-#modal .container .header-modal {
-	height: 60px;
-	border-bottom: 1px solid #000;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: bold;
-}
-
-#modal .container .form {
-	width: 80%;
-	margin: 20px auto;
-}
-
-#modal .container .form .form-btn {
-	display: flex;
-	justify-content: center;
-}
-
-#modal .container .form .form-btn button {
-	width: 150px;
-	padding: 5px;
-	color: var(--white);
-	margin: 0 8px;
-	cursor: pointer;
-}
-
-#modal .container .form .box-input {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 20px;
-}
-
-#modal .container .form .box-input input {
-	width: 48%;
-	padding: 10px;
-}
-
-#modal .container .form .form-description {
-	width: 100%;
-	max-width: 100%;
-	max-height: 200px;
-	height: 150px;
-	padding: 10px;
-}*/

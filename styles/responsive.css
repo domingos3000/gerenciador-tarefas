@@ -54,6 +54,7 @@
 
 	#header {
 		position: fixed;
+		top: 0;
 		width: 100%;
 		background-color: var(--colorOne);
 	}
@@ -112,12 +113,13 @@
 		height: 100vh;
 		opacity: 1;
 		pointer-events: auto;
+		border-bottom: 1px solid var(--white);
 	}
 
 	/* === MAIN === */
 
-	#main-home {
-		padding-top: 61px;
+	main {
+		margin-top: 61px;
 	}
 
 	#main-home .about .container .about-txt {

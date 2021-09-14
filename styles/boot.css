@@ -9,7 +9,10 @@
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12pt;
+	line-height: 1;
 }
+
+html {scroll-behavior: smooth;}
 
 :root {
 	--colorOne: rgb(23,26,29);

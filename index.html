@@ -35,8 +35,9 @@
 				
 				<input type="checkbox" id="check-mobile" class="hidden"/>
 				
+				<!-- NAV BAR | START -->
 				<nav class="menu menu-mobile">
-					<ul>
+					<ul id="list-menu">
 						<li>
 							<a href="#" class="active">
 								<i class="fas fa-home"></i>
@@ -50,24 +51,30 @@
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="task.html">
 								<i class="fas fa-tasks"></i>
 								Minhas Tarefas
 							</a>
 						</li>
 					</ul>
 				</nav>
+				<!-- NAV BAR | END -->
+				
+				<!-- LOGO MENU MOBILE | START -->
 				<label id="logo-menu-mobile" for="check-mobile" title="menu">
 					<span class="line1"></span>
 					<span class="line2"></span>
 					<span class="line3"></span>
 				</label>
+				<!-- LOGO MENU MOBILE | END -->
+				
 			</div>
 		</header>
 		<!-- HEADER | END -->
 		
 		<!-- MAIN | START -->
 		<main id="main-home">
+			<!-- BANNER | START -->
 			<div class="banner">
 				<div class="container df aic">
 					<article class="banner-txt">
@@ -82,7 +89,9 @@
 					<img src="assets/man-card.svg" alt="svg-note" class="svg-banner">
 				</div>
 			</div>
+			<!-- BANNER | END -->
 			
+			<!-- SECTION-ABOUT | START -->
 			<section class="about" id="about">
 				<div class="container">
 					<div>
@@ -98,7 +107,9 @@
 					</div>
 				</div>
 			</section>
+			<!-- SECTION-ABOUT | END -->
 			
+			<!-- SECTION-VANTAGE | START -->
 			<section>
 				<div class="vantage">
 					<div class="container">
@@ -120,6 +131,8 @@
 					</div>
 				</div>
 			</section>
+			<!-- SECTION-VANTAGE | END -->
+			
 		</main>
 		<!-- MAIN | END -->
 		
@@ -166,7 +179,7 @@
 		
 		
 		
-		<!-- <script src="scripts/script.js"></script> -->
+		<script src="scripts/view.js"></script>
 		
 		
 		<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
