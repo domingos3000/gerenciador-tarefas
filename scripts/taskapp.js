@@ -6,7 +6,9 @@ let inputMonth = document.querySelector('#select-moth')
 let inputYear = document.querySelector('#select-year')
 let inputHour = document.querySelector('#hour')
 
-const listTask = []
+let boxTask = document.querySelector('#task-container .task-list')
+
+const listTask = window.localStorage.getItem('task_management') == null ? [] : JSON.parse(window.localStorage.getItem('task_management'))
 
 // SET DATA
 function getWeek(week){
@@ -110,7 +112,34 @@ function saveData(){
 	let saveTask = JSON.stringify(listTask)
 	window.localStorage.setItem("task_management", saveTask)
 
-	alert("Salvo com sucesso!")
+	updateHtml()
+}
+
+function updateHtml(){
+
+	boxTask.innerHTML = ""
+	let num = 1
+
+	for(item of listTask){
+		
+
+		boxTask.innerHTML+=`
+			<li class="task-item">
+				<div class="number-name df">
+					<div class="task-number">${num}</div>
+					<div class="task-name">${item.title}</div>
+				</div>
+
+				<div class="task-info">
+					<div class="task-datetime">${item.date.week}, (${item.date.date}) <br> ${item.date.hour}</div>
+				</div>
+
+				<input type="hidden" value="${item.id}">
+			</li>
+		`
+		num++
+	}
+
 }
 
 
@@ -119,6 +148,7 @@ btnAdd.onclick = ()=> {
 	let date = getDate(inputDay.value,inputMonth.value,inputYear.value, inputHour.value)
 	
 	let dataTask = {
+		id: listTask.length == 0 ? 0 : listTask.length,
 		title: inputTitle.value,
 		description: inputDescription.value,
 		date,
@@ -127,10 +157,26 @@ btnAdd.onclick = ()=> {
 	addListTask(dataTask)
 }
 
-function getListTask(){
-	let getList = JSON.parse(window.localStorage.getItem('task_management'))
-	console.log(getList)
+
+function deleteTask(){
+	
+	let key = listTask.findIndex(element => {
+		if(element.id == 4){
+			return element
+		}
+	})
+
+	listTask.splice(key,1)
+
+	saveData()
 }
 
+if(listTask.length != 0){
+	updateHtml()
+} else{
+	alert("Sem nenhum registo!")
+}
 
-getListTask()
+console.log(listTask)
+
+console.log(listTask)

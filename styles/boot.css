@@ -9,7 +9,9 @@
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12pt;
+	outline: none;
 	line-height: 1;
+	box-sizing: border-box;
 }
 
 html {scroll-behavior: smooth;}
