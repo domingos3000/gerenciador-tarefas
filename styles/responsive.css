@@ -1,20 +1,3 @@
-/*@media (max-width: 1000px) {
-	#modal .container {
-		width: 80%;
-	}
-}
-
-@media (max-width: 600px) {
-	#modal .container .form .box-input {
-		flex-direction: column;
-	}
-
-	#modal .container .form .box-input input {
-	width: 100%;
-	margin-bottom: 5px;
-	
-	}
-}*/
 
 
 /* === HOME PAGE === */
@@ -178,6 +161,10 @@
 	{
 		width: initial;
 	}
+
+	#modal-add .box-modal-add {
+		width: 90%;
+	}
 }
 
 
@@ -197,6 +184,19 @@
 	#main-home .vantage .container .vantage-txt ul li {
 		font-size: 9pt;
 	}
+
+	#modal-add .box-modal-add {
+		height: auto;
+	}
+
+	#modal-add .box-modal-add .datetime {
+		flex-direction: column;
+	}
+
+	#modal-add .box-modal-add .datetime input {
+	width: 100%;
+	}
+
 }
 
 @media (max-width: 330px) {

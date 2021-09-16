@@ -1,14 +1,16 @@
 let btnAdd = document.querySelector('#btn-add')
 let inputTitle = document.querySelector('#input-name')
 let inputDescription = document.querySelector('#description')
-let inputDay = document.querySelector('#select-day')
-let inputMonth = document.querySelector('#select-moth')
-let inputYear = document.querySelector('#select-year')
+let inputDate = document.querySelector('#inputdate')
 let inputHour = document.querySelector('#hour')
-
 let boxTask = document.querySelector('#task-container .task-list')
-
+let modal = document.querySelector('#modal-add')
+let btnDelete = document.querySelector('#modal .btn-delete')
 const listTask = window.localStorage.getItem('task_management') == null ? [] : JSON.parse(window.localStorage.getItem('task_management'))
+
+function openModal(){
+	modal.classList.toggle('open')
+}
 
 // SET DATA
 function getWeek(week){
@@ -37,7 +39,7 @@ function getWeek(week){
 			$week = "Sábado"
 			break
 		default:
-			$week ="";
+			$week = "Dia de semana inválido!";
 		}
 	return $week;
 }
@@ -88,24 +90,19 @@ function getMonth(month){
 	return $month;
 }
 
-function getDate(day, month, year, hour){
+function getDate(date, hour){
 
-	let fullDate = new Date(`${year}-${month}-${day} ${hour}`)
-	let $week = getWeek(fullDate.getDay())
-	let $hour = `${fullDate.getHours()}:${fullDate.getMinutes()}`
+	let fullDate = new Date(`${date} ${hour}`)
+	let week = getWeek(fullDate.getDay())
 
-
-	return {
-		week: $week,
-		date: `${day}-${month}-${year}`,
-		hour: $hour
-	}
+	return {week,date,hour,}
 }
 
 // SAVE
 function addListTask(data){
 	listTask.push(data)
 	saveData()
+	openModal()
 }
 
 function saveData(){
@@ -126,7 +123,7 @@ function updateHtml(){
 		boxTask.innerHTML+=`
 			<li class="task-item">
 				<div class="number-name df">
-					<div class="task-number">${num}</div>
+					<div class="task-number" data-id="${item.id}" onclick="configAttribute(event)">${num}</div>
 					<div class="task-name">${item.title}</div>
 				</div>
 
@@ -145,7 +142,7 @@ function updateHtml(){
 
 // BTN EXECUTE SAVED
 btnAdd.onclick = ()=> {
-	let date = getDate(inputDay.value,inputMonth.value,inputYear.value, inputHour.value)
+	let date = getDate(inputDate.value, inputHour.value)
 	
 	let dataTask = {
 		id: listTask.length == 0 ? 0 : listTask.length,
@@ -158,17 +155,22 @@ btnAdd.onclick = ()=> {
 }
 
 
-function deleteTask(){
+function deleteTask(event){
 	
-	let key = listTask.findIndex(element => {
-		if(element.id == 4){
+	let idDelete = event.target.getAttribute('data-id')
+	
+	let keyId = listTask.findIndex(element => {
+		if(element.id == idDelete){
 			return element
 		}
 	})
 
-	listTask.splice(key,1)
+	if(keyId != -1){
+		listTask.splice(keyId,1)
+		saveData()
+	}
 
-	saveData()
+	openModal()
 }
 
 if(listTask.length != 0){
@@ -177,6 +179,13 @@ if(listTask.length != 0){
 	alert("Sem nenhum registo!")
 }
 
-console.log(listTask)
+let taskNumber = document.querySelectorAll('#task-container .task-number')
 
-console.log(listTask)
+function configAttribute(event){
+	openModal()
+	let dataId = event.target.getAttribute('data-id')
+	btnDelete.setAttribute('data-id', dataId)
+	
+
+	return dataId;
+}
