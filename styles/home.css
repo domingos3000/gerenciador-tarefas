@@ -47,7 +47,8 @@
 #main-home .banner .container .banner-txt p {
 	color: #fff;
 	opacity: 0.9;
-	max-width: 500px
+	max-width: 500px;
+	line-height: 25px;
 }
 
 #main-home .banner .container .banner-txt .btn {
