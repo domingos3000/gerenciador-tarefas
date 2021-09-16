@@ -54,7 +54,7 @@
 	background-color: var(--colorError);
 	border-color: transparent;
 	margin-top: 30px;
-	padding: 3px 15px;
+	padding: 15px 18px;
 }
 
 #main-home .banner .container .banner-txt .btn:hover {
