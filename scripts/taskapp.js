@@ -1,32 +1,43 @@
-let btnAdd = document.querySelector('#btn-add')
-let inputTitle = document.querySelector('#input-name')
-let inputDescription = document.querySelector('#description')
-let inputDate = document.querySelector('#inputdate')
-let inputHour = document.querySelector('#hour')
-let boxTask = document.querySelector('#task-container .task-list')
-let modalAdd = document.querySelector('#modal-add')
-let modalDel = document.querySelector('#modal-del')
-let btnDelete = document.querySelector('#modal-del .btn-delete')
+// VARIABLES
+
+	let btnAdd = document.querySelector('#btn-add')
+	let inputTitle = document.querySelector('#input-name')
+	let inputDescription = document.querySelector('#description')
+	let inputDate = document.querySelector('#inputdate')
+	let inputHour = document.querySelector('#hour')
+	let boxTask = document.querySelector('#task-container .task-list')
+	let modalAdd = document.querySelector('#modal-add')
+	let modalDel = document.querySelector('#modal-del')
+	let btnDelete = document.querySelector('#modal-del .btn-delete')
+
+// GET DATA SAVED IN LOCALSTORE
 const listTask = window.localStorage.getItem('task_management') == null ? [] : JSON.parse(window.localStorage.getItem('task_management'))
 
+// FUNCTION | VERIFY IF TASK EMPATY
 function messageInitial(){
 	let alertEmpty = document.querySelector("#alert-empty")
 
-	if(listTask.length == 0)
+	if(listTask.length == 0){
 		alertEmpty.classList.add('on')
-	else
+	}
+	else{
 		alertEmpty.classList.remove('on')
+	}
 }
 
+// FUNCTION | OPEN MODAL ADD
 function openModal(){
 	modalAdd.classList.toggle('open')
 	resetInput()
 }
 
+// FUNCTION | OPEN MODAL DELETE
 function openModalDel(){
+
 	modalDel.classList.toggle('open')
 }
 
+// FUNCTION | RESETE VALUES INPUT
 function resetInput(){
 	inputDate.value = ""
 	inputTitle.value = ""
@@ -34,7 +45,7 @@ function resetInput(){
 	inputDescription.value = ""
 }
 
-// SET DATA
+// FUNCTION | CONFIG. WEEK NAME
 function getWeek(week){
 
 	// DAY WEEK IN PORTUGUESE
@@ -66,6 +77,7 @@ function getWeek(week){
 	return $week;
 }
 
+// FUNCTION | CONFIG. MONTH WEEK
 function getMonth(month){
 
 	// DAY WEEK IN PORTUGUESE
@@ -112,6 +124,7 @@ function getMonth(month){
 	return $month;
 }
 
+// FUNCTION | GET DATE
 function getDate(date, hour){
 
 	let fullDate = new Date(`${date} ${hour}`)
@@ -120,13 +133,14 @@ function getDate(date, hour){
 	return {week,date,hour,}
 }
 
-// SAVE
+// FUNCTION | ADD TASK
 function addListTask(data){
 	listTask.push(data)
 	saveData()
 	openModal()
 }
 
+// FUNCTION | SAVE TASK
 function saveData(){
 	let saveTask = JSON.stringify(listTask)
 	window.localStorage.setItem("task_management", saveTask)
@@ -134,6 +148,7 @@ function saveData(){
 	updateHtml()
 }
 
+// FUNCTION | UPDATE TASK HTML
 function updateHtml(){
 
 	boxTask.innerHTML = ""
@@ -160,12 +175,10 @@ function updateHtml(){
 	}
 
 	messageInitial()
-
-
 }
 
 
-// BTN EXECUTE SAVED
+// FUNCTION | EXECUTE BTN SAVE
 btnAdd.onclick = ()=> {
 	let date = getDate(inputDate.value, inputHour.value)
 	
@@ -179,7 +192,7 @@ btnAdd.onclick = ()=> {
 	addListTask(dataTask)
 }
 
-
+// FUNCTION | DELETE TASK
 function deleteTask(event){
 	
 	let idDelete = event.target.getAttribute('data-id')
@@ -196,13 +209,7 @@ function deleteTask(event){
 	}
 
 	openModalDel()
-
-
 }
-
-
-
-let taskNumber = document.querySelectorAll('#task-container .task-number')
 
 function configAttribute(event){
 	openModalDel()
@@ -213,4 +220,6 @@ function configAttribute(event){
 	return dataId;
 }
 
+// FIRST FUNCION EXECUTE ONLOAD
+updateHtml()
 messageInitial()
