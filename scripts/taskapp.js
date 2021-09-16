@@ -4,12 +4,34 @@ let inputDescription = document.querySelector('#description')
 let inputDate = document.querySelector('#inputdate')
 let inputHour = document.querySelector('#hour')
 let boxTask = document.querySelector('#task-container .task-list')
-let modal = document.querySelector('#modal-add')
-let btnDelete = document.querySelector('#modal .btn-delete')
+let modalAdd = document.querySelector('#modal-add')
+let modalDel = document.querySelector('#modal-del')
+let btnDelete = document.querySelector('#modal-del .btn-delete')
 const listTask = window.localStorage.getItem('task_management') == null ? [] : JSON.parse(window.localStorage.getItem('task_management'))
 
+function messageInitial(){
+	let alertEmpty = document.querySelector("#alert-empty")
+
+	if(listTask.length == 0)
+		alertEmpty.classList.add('on')
+	else
+		alertEmpty.classList.remove('on')
+}
+
 function openModal(){
-	modal.classList.toggle('open')
+	modalAdd.classList.toggle('open')
+	resetInput()
+}
+
+function openModalDel(){
+	modalDel.classList.toggle('open')
+}
+
+function resetInput(){
+	inputDate.value = ""
+	inputTitle.value = ""
+	inputHour.value = ""
+	inputDescription.value = ""
 }
 
 // SET DATA
@@ -137,6 +159,9 @@ function updateHtml(){
 		num++
 	}
 
+	messageInitial()
+
+
 }
 
 
@@ -170,22 +195,22 @@ function deleteTask(event){
 		saveData()
 	}
 
-	openModal()
+	openModalDel()
+
+
 }
 
-if(listTask.length != 0){
-	updateHtml()
-} else{
-	alert("Sem nenhum registo!")
-}
+
 
 let taskNumber = document.querySelectorAll('#task-container .task-number')
 
 function configAttribute(event){
-	openModal()
+	openModalDel()
+
 	let dataId = event.target.getAttribute('data-id')
 	btnDelete.setAttribute('data-id', dataId)
 	
-
 	return dataId;
 }
+
+messageInitial()

@@ -20,6 +20,8 @@ html {scroll-behavior: smooth;}
 	--colorOne: rgb(23,26,29);
 	--colorTwo: rgb(255,175,54);
 	--white: rgb(255,255,255);
+	--titleModal: rgb(232, 234, 237);
+	--backgroundModal: rgb(41, 42, 45);
 	--black: rgb(0,0,0);
 	--borderOne: 1px solid rgba(255,255,255, 0.3);
 	--colorOk: rgb(0,202,146);

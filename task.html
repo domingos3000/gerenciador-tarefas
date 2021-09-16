@@ -79,8 +79,9 @@
 			
 			<div class="container df" data-view="true">
 				<div id="task-container" >
+					<p id="alert-empty">Nenhuma tarefa registada!</p>
+					
 					<ul class="task-list">
-						
 					</ul>
 				</div>
 				
@@ -117,6 +118,16 @@
 					<button class="btn-modal add" id="btn-add">Adicionar</button>
 				</div>
 				
+			</div>
+		</div>
+		
+		<div id="modal-del">
+			<div>
+				<h3>Tem certeza que quer eliminar?</h3>
+				<div class="btns-modal df">
+					<button class="btn-modal cancel" onclick="openModalDel()">Cancelar</button>
+					<button class="btn-modal del btn-delete" onclick="deleteTask(event)">Eliminar</button>
+				</div>
 			</div>
 		</div>
 		
