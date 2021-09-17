@@ -204,4 +204,8 @@
 	header.title p {
 		font-size: 10pt;
 	}
+
+	#modal-del > div {
+		width: 90%;
+	}
 }
